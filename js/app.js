@@ -1,6 +1,6 @@
 /* A function that returns a greeting for the given name */
 function greet(name){
-  return "Hello,"+name;
+  return "Hello, "+name;
 }
 
 
@@ -20,13 +20,14 @@ function invertCase(text) {
     if(LOWER_CASE.indexOf(char) != -1){ //is lowercase
       let upper = UPPER_CASE[ LOWER_CASE.indexOf(char) ];
       tempString += upper;
-    }
-    else { //is uppercase
-      let lower = LOWER_CASE [ LOWER_CASE.indexOf(char) ];
+    } else if(UPPER_CASE.indexOf(char) != -1) { //is uppercase
+      let lower = LOWER_CASE [ UPPER_CASE.indexOf(char) ];
       tempString += lower;
+    } else {
+      tempString += char;
     }
   }
-  return text;
+  return tempString;
 }
 
 
